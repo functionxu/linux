@@ -1,0 +1,14 @@
+.PHONY : clean all install
+
+all: ../lib/error_functions.o ../lib/get_num.o copy
+
+copy : copy.c ../lib/get_num.o ../lib/error_functions.o
+	gcc copy.c ../lib/get_num.o ../lib/error_functions.o -I ../lib -o copy
+
+install :
+	-mv copy ../run/copy
+
+clean : 
+#	-rm lib/error_functions.o
+#	-rm lib/get_num.o
+	-rm ../run/copy

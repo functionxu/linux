@@ -1,0 +1,12 @@
+.PHONY : clean all install
+
+all: ../lib/error_functions.o ../lib/get_num.o seek_io
+
+seek_io : seek_io.c ../lib/get_num.o ../lib/error_functions.o
+	gcc seek_io.c ../lib/get_num.o ../lib/error_functions.o -I ../lib -o seek_io
+
+install :
+	-mv seek_io ../run/seek_io
+
+clean : 
+	-rm ../run/seek_io

@@ -1,0 +1,12 @@
+.PHONY : clean all install
+
+all: ../lib/error_functions.o ../lib/get_num.o t_readv
+
+t_readv : t_readv.c ../lib/get_num.o ../lib/error_functions.o
+	gcc t_readv.c ../lib/get_num.o ../lib/error_functions.o -I ../lib -o t_readv
+
+install :
+	-mv t_readv ../run/t_readv
+
+clean : 
+	-rm ../run/t_readv

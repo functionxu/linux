@@ -1,0 +1,12 @@
+.PHONY : clean all install
+
+all: ../lib/error_functions.o ../lib/get_num.o bad_exclusive_open
+
+bad_exclusive_open : bad_exclusive_open.c ../lib/get_num.o ../lib/error_functions.o
+	gcc bad_exclusive_open.c ../lib/get_num.o ../lib/error_functions.o -I ../lib -o bad_exclusive_open 
+
+install :
+	-mv bad_exclusive_open ../run/bad_exclusive_open
+
+clean : 
+	-rm ../run/bad_exclusive_open
