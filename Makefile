@@ -26,6 +26,12 @@ footprint: procexec/footprint.c lib/get_num.o lib/error_functions.o
 fork-whos-on-first: procexec/fork_whos_on_first.c lib/get_num.o lib/error_functions.o
 	gcc procexec/fork_whos_on_first.c lib/get_num.o lib/error_functions.o -I lib -o fork-whos-on-first
 
+multi-wait: procexec/multi_wait.c lib/get_num.o lib/error_functions.o lib/curr_time.o
+	gcc procexec/multi_wait.c lib/get_num.o lib/error_functions.o lib/curr_time.o -I lib -o multi-wait
+
+child-status: procexec/child_status.c lib/get_num.o lib/error_functions.o
+	gcc procexec/child_status.c lib/get_num.o lib/error_functions.o -I lib -o run/child-status
+
 install-copy :
 	mv copy run/copy
 install-necho :
@@ -38,6 +44,8 @@ install-footprint:
 	mv footprint run/footprint
 install-fork-whos-on-first:
 	mv fork-whos-on-first run/fork-whos-on-first
+install-multi-wait:
+	mv multi-wait run/multi-wait
 
 clean-copy : 
 #	-rm lib/error_functions.o
